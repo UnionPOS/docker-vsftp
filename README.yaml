@@ -1,0 +1,76 @@
+---
+#
+# This is the canonical configuration for the `README.md`
+# Run `make readme` to rebuild the `README.md`
+#
+
+# Name of this project
+name: Docker VSFTP Service
+
+# Short description of this project
+description: |-
+  Dockerfile for VSFTP Service
+
+  Small and flexible docker image with vsftpd server
+
+# Canonical GitHub repo
+github_repo: UnionPOS/docker-sftp
+
+# How to get started quickly
+quickstart: |-
+
+  Here's how to get started...
+
+  1. ensure you have a [baseline configuration](https://github.com/UnionPOS/baseline/)
+  1. `git clone https://github.com/UnionPOS/docker-vsftp` to pull down the repository
+  1. `make init` to initialize the [`build-harness`](https://github.com/UnionPOS/build-harness/)
+
+# How to use this project
+usage: |-
+  ### Building the image
+
+  ```sh
+  make build
+  ```
+
+  ### Running the container
+
+  ```bash
+  make run
+  ```
+
+  ### Running the container (interactive mode)
+
+  ```bash
+  make it
+  ```
+
+  ### Usage
+  ```
+  docker run -d \
+              -p 21:21 \
+              -p 21000-21010:21000-21010 \
+              -e USERS="one|1234" \
+              -e ADDRESS=ftp.site.domain \
+              delfer/alpine-ftp-server
+  ```
+
+  ### Configuration
+
+  Environment variables:
+  - `USERS` - space and `|` separated list (optional, default: `ftp|alpineftp`)
+    - format `name1|password1|[folder1][|uid1] name2|password2|[folder2][|uid2]`
+  - `ADDRESS` - external address witch clients can connect passive ports (optional)
+
+  ### USERS examples
+
+  - `user|password foo|bar|/home/foo`
+  - `user|password|/home/user/dir|10000`
+  - `user|password||10000`
+
+# References
+references:
+  - name: "Docker"
+    description: "Docker Documentation"
+    url: "https://docs.docker.com/"
+
